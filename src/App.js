@@ -2,10 +2,6 @@ import { useState, useEffect } from 'react';
 import './App.css';
 import axios from 'axios';
 
-// EXERCISE:
-// Add Humidity, Min tempearature, and weather icons
-
-
 function App(){
   //useEffect hook tells our component app to do something
   // after rendering
@@ -15,7 +11,6 @@ function App(){
     country:'',
     temperature:'',
     airHumid:'',
-    tempMin:'',
     icon:'',
     description: ''
   })
@@ -39,7 +34,6 @@ function App(){
       country: result.data.sys.country,
       temperature: result.data.main.temp,
       airHumid: result.data.main.humidity,
-      tempMin: result.data.main.temp_min,
       //watch out for array
       icon: result.data.weather[0].icon,
       description: result.data.weather[0].description
@@ -78,8 +72,6 @@ function App(){
         <p>{allData.temperature}*C</p>
         <h2>Air Humid</h2>
         <p>{allData.airHumid}%</p>
-        <h2>Min Temperature</h2>
-        <p>{allData.tempMin}*C</p>
         <h2>Description</h2>
         <p>{allData.description}</p>
       
